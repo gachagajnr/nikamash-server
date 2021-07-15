@@ -1,0 +1,32 @@
+// Use this hook to manipulate incoming or outgoing data.
+// For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
+
+// eslint-disable-next-line no-unused-vars
+module.exports = (options = {}) => {
+  return async (context) => {
+    const { app, data } = context;
+
+    let dat = data;
+    dat.total = data.sellingPrice * data.units;
+
+    const res = await app.service("products").find({
+      query: {
+        name: data.name,
+        $limit: 1,
+      },
+    });
+	
+	dat.bp= res.data[0].buyingPrice
+    if (res) {
+      await app.service("products").patch(res.data[0]._id, {
+        units: res.data[0].units - data.units,
+      });
+
+      //   let dat = data;
+      //   dat.total = data.sellingPrice * data.units;
+      //   data = dat;
+      //   console.log(data, dat);
+    }
+    return context;
+  };
+};
