@@ -5,8 +5,8 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get("sequelizeClient");
-  const products = sequelizeClient.define(
-    "products",
+  const expenses = sequelizeClient.define(
+    "expenses",
     {
       _id: {
         type: Sequelize.UUID,
@@ -19,25 +19,21 @@ module.exports = function (app) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      buyingPrice: {
+      amount: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      mode: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sellingPrice: {
+      notes: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      quantity: {
+      day: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      units: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      available_units: {
-        type: DataTypes.STRING,
-        allowNull: true,
       },
     },
     {
@@ -50,10 +46,10 @@ module.exports = function (app) {
   );
 
   // eslint-disable-next-line no-unused-vars
-  products.associate = function (models) {
+  expenses.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return products;
+  return expenses;
 };

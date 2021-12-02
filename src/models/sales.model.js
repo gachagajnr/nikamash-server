@@ -27,20 +27,24 @@ module.exports = function (app) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      day: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       units: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
       bp: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.NUMERIC,
         allowNull: true,
       },
       profit: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.NUMERIC,
         defaultValue: 0,
       },
       total: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },

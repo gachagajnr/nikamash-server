@@ -16,6 +16,7 @@ module.exports = (options = {}) => {
         units: res.data[0].units + result.units,
         buyingPrice: result.buyingPrice,
       });
+	  
     }
     return context;
   };

@@ -4,8 +4,8 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async (context) => {
-    const { result,app } = context;
-    
+    const { result, app } = context;
+    // console.log(result);
     await app.service("sales").patch(result._id, {
       profit: (result.sellingPrice - result.bp) * result.units,
     });
