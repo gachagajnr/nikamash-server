@@ -40,6 +40,10 @@ module.exports = function (app) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      day: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       hooks: {
