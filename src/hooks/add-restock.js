@@ -5,9 +5,19 @@
 module.exports = (options = {}) => {
   return async (context) => {
     const { result, app } = context;
-    await app.service("sales").patch(result._id, {
-      profit: (result.sellingPrice - result.bp) * result.units,
+
+    const res = await app.service("products").find({
+      query: {
+        name: result.name,
+        $limit: 1,
+      },
     });
+    console.log(res);
+    if (res.total <= 1) {
+      await app.service("products").patch(res.data[0]._id, {
+        units: res.data[0].units + result.units,
+      });
+    }
     return context;
   };
 };

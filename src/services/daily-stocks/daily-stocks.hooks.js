@@ -1,15 +1,11 @@
-const reduceAvailable = require("../../hooks/reduce-available");
-
-const reduceProfit = require("../../hooks/reduce-profit");
-
-const createStock = require("../../hooks/create-stock");
+const sanitizeDailyStock = require("../../hooks/sanitize-daily-stock");
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [reduceAvailable()],
+    create: [sanitizeDailyStock()],
     update: [],
     patch: [],
     remove: [],
@@ -19,7 +15,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [reduceProfit(), createStock()],
+    create: [],
     update: [],
     patch: [],
     remove: [],

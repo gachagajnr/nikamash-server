@@ -5,7 +5,6 @@
 module.exports = (options = {}) => {
   return async (context) => {
     const { app, data } = context;
-    console.log("DATA",data);
 
     let dat = data;
     dat.total = data.sellingPrice * data.units;
