@@ -5,8 +5,8 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get("sequelizeClient");
-  const users = sequelizeClient.define(
-    "users",
+  const openingBalances = sequelizeClient.define(
+    "opening_balances",
     {
       _id: {
         type: Sequelize.UUID,
@@ -15,44 +15,17 @@ module.exports = function (app) {
         isUUID: 4,
         defaultValue: Sequelize.UUIDV4,
       },
-      username: {
-        type: DataTypes.STRING,
+      mpesa: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: DataTypes.STRING,
+      cash: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      phone: {
+      day: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      role: {
-        type: DataTypes.STRING,
-        defaultValue: "user",
-      },
-      isVerified: {
-        type: DataTypes.BOOLEAN,
-      },
-      verifyToken: {
-        type: DataTypes.STRING,
-      },
-      resetToken: {
-        type: DataTypes.STRING,
-      },
-      verifyExpires: {
-        type: DataTypes.DATE,
-      },
-      verifyChanges: {
-        type: DataTypes.JSON,
-      },
-      resetExpires: {
-        type: DataTypes.DATE,
       },
     },
     {
@@ -65,10 +38,10 @@ module.exports = function (app) {
   );
 
   // eslint-disable-next-line no-unused-vars
-  users.associate = function (models) {
+  openingBalances.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return users;
+  return openingBalances;
 };

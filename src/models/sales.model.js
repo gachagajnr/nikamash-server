@@ -23,6 +23,14 @@ module.exports = function (app) {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      cash: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      mpesa: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       quantity: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -45,7 +53,7 @@ module.exports = function (app) {
       },
       mode: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       total: {
         type: DataTypes.STRING,

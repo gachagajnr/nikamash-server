@@ -4,20 +4,17 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async (context) => {
-    const { result, app } = context;
-
-    const res = await app.service("products").find({
+    const { data, app } = context;
+    const qc = await app.service("opening-balances").find({
       query: {
-        name: result.name,
+        day: data.day,
         $limit: 1,
       },
     });
-    // console.log(res);
-    if (res.total <= 1) {
-      await app.service("products").patch(res.data[0]._id, {
-        units: res.data[0].units + result.units,
-      });
+    if (qc.total > 1) {
+      throw new Error("Balances has already been added");
     }
+
     return context;
   };
 };

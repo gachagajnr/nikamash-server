@@ -6,7 +6,7 @@
 module.exports = (options = {}) => {
   return async (context) => {
     const { data, app } = context;
-    console.log(data);
+    // console.log(data);
     const ap = await app.service("daily-stocks").find({
       query: {
         day: data.day,
@@ -15,7 +15,7 @@ module.exports = (options = {}) => {
       },
     });
 
-    console.log(ap);
+    // console.log(ap);
     if (ap.total >= 1) {
       try {
         await Promise.all(
