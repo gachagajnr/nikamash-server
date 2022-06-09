@@ -25,5 +25,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://runqywgtbqyegu:b0fe4e09486ebd4ee158cc1771f9fbaa77826086b40088bd3de99d75b94ad03e@ec2-52-73-184-24.compute-1.amazonaws.com:5432/d2jl11v7ku9vr6"
+  "postgres": "postgres://nika:nikamash@localhost:5432/nikamash"
 }
