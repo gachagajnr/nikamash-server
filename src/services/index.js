@@ -8,6 +8,8 @@ const dailyStocks = require('./daily-stocks/daily-stocks.service.js');
 const restockSummary = require('./restock-summary/restock-summary.service.js');
 const openingBalances = require('./opening-balances/opening-balances.service.js');
 
+const organizations = require('./organizations/organizations.service.js');
+
 module.exports = function (app) {
  app.configure(users);
  app.configure(products);
@@ -17,4 +19,5 @@ module.exports = function (app) {
  app.configure(dailyStocks);
  app.configure(restockSummary);
  app.configure(openingBalances);
+ app.configure(organizations);
 };

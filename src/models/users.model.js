@@ -19,6 +19,10 @@ module.exports = function (app) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      organization: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -66,6 +70,9 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   users.associate = function (models) {
+    // const { products, sales } = models;
+    // users.hasMany(products); // Will add userId to comments model
+    // users.hasMany(sales); // Will add userId to posts model
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

@@ -25,5 +25,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://nika:nikamash@localhost:5432/nikamash"
+  "postgres": "postgres://nika:nikamash@localhost:5432/mash"
 }
