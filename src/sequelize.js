@@ -31,7 +31,7 @@ module.exports = function (app) {
     });
 
     // Sync to the database
-    app.set("sequelizeSync", sequelize.sync({ force: true }));
+    app.set("sequelizeSync", sequelize.sync());
 
     return result;
   };
