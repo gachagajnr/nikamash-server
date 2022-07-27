@@ -4,12 +4,16 @@ const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;
 
+const orgHook = require('../../hooks/org-hook');
+
+const generateOrganization = require('../../hooks/generate-organization');
+
 module.exports = {
   before: {
     all: [],
     find: [ authenticate('jwt') ],
     get: [ authenticate('jwt') ],
-    create: [ hashPassword('password') ],
+    create: [hashPassword('password'), orgHook()],
     update: [ hashPassword('password'),  authenticate('jwt') ],
     patch: [ hashPassword('password'),  authenticate('jwt') ],
     remove: [ authenticate('jwt') ]
@@ -23,7 +27,7 @@ module.exports = {
     ],
     find: [],
     get: [],
-    create: [],
+    create: [generateOrganization()],
     update: [],
     patch: [],
     remove: []

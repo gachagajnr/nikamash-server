@@ -39,9 +39,12 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   openingBalances.associate = function (models) {
+    const { organizations } = models;
+    openingBalances.belongsTo(organizations); // Will add userId to users model
+
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
-  };
+  };;
 
   return openingBalances;
 };

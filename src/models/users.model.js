@@ -19,9 +19,9 @@ module.exports = function (app) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      organization: {
+      organizationId: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: DataTypes.STRING,

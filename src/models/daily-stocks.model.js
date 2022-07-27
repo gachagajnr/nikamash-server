@@ -43,6 +43,9 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   dailyStocks.associate = function (models) {
+    const { organizations } = models;
+    dailyStocks.belongsTo(organizations); // Will add userId to users model
+
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
