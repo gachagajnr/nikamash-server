@@ -10,7 +10,7 @@ module.exports = (options = {}) => {
         name: result.organization_name,
         email: result.email,
         phone: result.phone,
-        owner: result._id,
+        userId: result._id,
       };
       const res = await app.service("organizations").create(data);
       console.log("AFTER CREATING ORGANIZATION", res);
