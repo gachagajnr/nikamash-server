@@ -5,16 +5,9 @@
 module.exports = (options = {}) => {
   return async (context) => {
     const { result, app } = context;
-
-    if (result.role === "organizationAdmin") {
-      const data = {
-        name: result.name,
-        email: result.email,
-        phone: result.phone,
-        ownerId: result._id,
-      };
-      await app.service("organizations").create(data);
-    }
+    await app
+      .service("users")
+      .patch(result.ownerId, { organizationId: result._id });
     return context;
   };
 };

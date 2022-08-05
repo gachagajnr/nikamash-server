@@ -1,5 +1,7 @@
 
 
+const assignOrgAdminToOrganization = require('../../hooks/assign-org-admin-to-organization');
+
 module.exports = {
   before: {
     all: [],
@@ -15,7 +17,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [assignOrgAdminToOrganization()],
     update: [],
     patch: [],
     remove: []

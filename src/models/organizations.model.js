@@ -15,6 +15,11 @@ module.exports = function (app) {
         isUUID: 4,
         defaultValue: Sequelize.UUIDV4,
       },
+      ownerId: {
+        type: Sequelize.UUID,
+        unique: true,
+        isUUID: 4,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -40,8 +45,8 @@ module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   organizations.associate = function (models) {
     const { users } = models;
-    organizations.belongsTo(users); // Will add userId to users model
-    // users.hasMany(sales);
+    // organizations.belongsTo(users); // Will add userId to users model
+    organizations.hasMany(users);
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

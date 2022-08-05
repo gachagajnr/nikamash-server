@@ -15,14 +15,11 @@ module.exports = function (app) {
         isUUID: 4,
         defaultValue: Sequelize.UUIDV4,
       },
-      username: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      organizationId: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
+
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -70,9 +67,9 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   users.associate = function (models) {
-    // const { products, sales } = models;
-    // users.hasMany(products); // Will add userId to comments model
-    // users.hasMany(sales); // Will add userId to posts model
+    const { organizations } = models;
+    // users.belongsTo(organizations); // Will add userId to comments model
+    users.belongsTo(organizations); // Will add userId to posts model
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
